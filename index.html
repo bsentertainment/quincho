@@ -5,6 +5,9 @@
   <title>Quincho</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Font (retro / analog feel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -12,50 +15,70 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0d0d0d;
-      color: #f2f2f2;
+      font-family: "Space Grotesk", sans-serif;
+      background: #0b0b0b;
+      color: #f1f1f1;
       line-height: 1.6;
+      letter-spacing: 0.3px;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 80px 20px;
     }
 
     h1 {
-      font-size: 52px;
-      letter-spacing: 3px;
-      margin-bottom: 5px;
-    }
-
-    .subtitle {
-      opacity: 0.7;
-      margin-bottom: 60px;
+      font-size: 56px;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
     }
 
     h2 {
-      font-weight: normal;
-      margin-bottom: 25px;
+      margin-top: 80px;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    p {
+      opacity: 0.75;
+    }
+
+    /* subtle grain overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("grain.png");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 10px;
+      filter: contrast(1.05);
     }
 
     .card {
-      max-width: 360px;
       border: 1px solid #222;
-      padding: 24px;
-      border-radius: 8px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #444;
+      padding: 28px;
+      border-radius: 10px;
+      max-width: 420px;
+      background: rgba(255,255,255,0.01);
     }
 
     .price {
       opacity: 0.6;
-      margin-bottom: 12px;
+      margin: 8px 0 14px;
       display: block;
     }
 
@@ -66,30 +89,70 @@
 
     button {
       width: 100%;
-      background: #f2f2f2;
-      color: #0d0d0d;
+      background: #f1f1f1;
+      color: #0b0b0b;
       border: none;
-      padding: 12px;
-      font-size: 14px;
-      font-weight: bold;
+      padding: 14px;
+      font-weight: 600;
       letter-spacing: 1px;
       cursor: pointer;
-      transition: opacity 0.2s ease;
     }
 
     button:hover {
       opacity: 0.85;
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .socials a {
+      display: inline-block;
+      margin-right: 20px;
+      opacity: 0.7;
+    }
+
+    .socials a:hover {
+      opacity: 1;
+    }
+
+    .email-box {
+      margin-top: 20px;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #111;
+      border: 1px solid #222;
+      color: #fff;
+    }
+
     footer {
-      margin-top: 100px;
+      margin-top: 120px;
       font-size: 13px;
       opacity: 0.4;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    /* scroll animation */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -97,29 +160,91 @@
 <body>
   <div class="container">
 
-    <h1>QUINCHO</h1>
-    <div class="subtitle">DJ / Producer</div>
+    <!-- HERO -->
+    <section class="hero fade">
+      <div>
+        <h1>QUINCHO</h1>
+        <p>Producer / DJ. Analog textures, late-night sessions, finished ideas.</p>
+      </div>
+      <img src="quincho.jpg" alt="Quincho portrait">
+    </section>
 
-    <h2>Sample Pack</h2>
+    <!-- SAMPLE PACK -->
+    <section class="fade">
+      <h2>Sample Pack</h2>
+      <div class="card">
+        <strong>Joaquin – Sample Pack Vol. 1</strong>
+        <span class="price">$9.99 · WAV + MIDI</span>
 
-    <div class="card">
-      <strong>Joaquin – Sample Pack Vol. 1</strong>
-      <span class="price">$9.99 · WAV + MIDI</span>
+        <audio controls>
+          <source src="sample-pack-preview.mp3" type="audio/mpeg">
+        </audio>
 
-      <audio controls>
-        <source src="sample-pack-preview.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+        <a href="https://delaguardia.gumroad.com/l/jspv1" target="_blank">
+          <button>Buy Sample Pack</button>
+        </a>
+      </div>
+    </section>
 
-      <a href="https://delaguardia.gumroad.com/l/jspv1" target="_blank">
-        <button>Buy Sample Pack</button>
-      </a>
-    </div>
+    <!-- COMPLETE CATALOG -->
+    <section class="fade">
+      <h2>Complete Catalog (49 Songs + Videos)</h2>
+      <p>
+        Full discography bundle. 49 released songs + selected music videos.
+        Delivered as a single ZIP.
+      </p>
+
+      <div class="card">
+        <strong>Quincho – Complete Collection</strong>
+        <span class="price">$39 · ZIP Download</span>
+
+        <a href="PUT_GUMROAD_ZIP_LINK_HERE" target="_blank">
+          <button>Buy Full Catalog</button>
+        </a>
+      </div>
+    </section>
+
+    <!-- EMAIL -->
+    <section class="fade">
+      <h2>Stay Connected</h2>
+      <p>Get early access to new drops and unreleased material.</p>
+
+      <div class="email-box">
+        <form action="https://formsubmit.co/bsentholdings@gmail.com" method="POST">
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <button type="submit">Join Mailing List</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SOCIALS -->
+    <section class="fade">
+      <h2>Online</h2>
+      <div class="socials">
+        <a href="https://instagram.com/quinchomusic" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@quinchomusic" target="_blank">TikTok</a>
+        <a href="https://youtube.com/@joaquinsounds" target="_blank">YouTube</a>
+        <a href="mailto:bsentholdings@gmail.com">Email</a>
+      </div>
+    </section>
 
     <footer>
       © Quincho
     </footer>
 
   </div>
+
+  <script>
+    const fades = document.querySelectorAll(".fade");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fades.forEach(fade => observer.observe(fade));
+  </script>
 </body>
 </html>
