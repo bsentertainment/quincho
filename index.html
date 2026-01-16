@@ -5,7 +5,6 @@
   <title>Quincho</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Retro Font -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -100,12 +99,36 @@
 
     button:hover { opacity: 0.85; }
 
-    .socials a {
-      margin-right: 20px;
-      opacity: 0.7;
+    /* CONNECT SECTION */
+    .connect {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
-    .socials a:hover { opacity: 1; }
+    .connect a {
+      border: 1px solid #222;
+      padding: 18px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0.7;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .connect a:hover {
+      opacity: 1;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .icon {
+      font-size: 22px;
+      width: 30px;
+      text-align: center;
+    }
 
     input[type="email"] {
       width: 100%;
@@ -167,7 +190,7 @@
     <section class="hero fade">
       <div>
         <h1>QUINCHO</h1>
-        <p>Producer / DJ. Finished music, late nights, analog emotion.</p>
+        <p>Producer / DJ 🌴🇵🇦</p>
       </div>
       <img src="quincho.jpg" alt="Quincho portrait">
     </section>
@@ -177,7 +200,7 @@
       <h2>Sample Pack</h2>
 
       <div class="card">
-        <img src="pack-cover.jpg" alt="Sample pack cover">
+        <img src="pack-cover.jpg">
 
         <strong>Joaquin – Sample Pack Vol. 1</strong>
         <span class="price">$9.99 · WAV + MIDI</span>
@@ -195,16 +218,17 @@
     <!-- COMPLETE COLLECTION -->
     <section class="fade">
       <h2>Complete Music Collection</h2>
-      <p>
-        Entire Quincho catalog. 49 songs + selected music videos.
-        Delivered as one ZIP.
-      </p>
+      <p>Entire Quincho catalog. 49 songs + selected music videos.</p>
 
       <div class="card">
-        <img src="catalog-cover.jpg" alt="Music collection cover">
+        <img src="catalog-cover.jpg">
 
         <strong>Quincho – Complete Collection</strong>
         <span class="price">$9.99 · ZIP Download</span>
+
+        <audio controls>
+          <source src="Capaz (Joaquin Afro Remix).mp3" type="audio/mpeg">
+        </audio>
 
         <a href="https://delaguardia.gumroad.com/l/joaquincollection" target="_blank">
           <button>Buy Full Collection</button>
@@ -217,9 +241,6 @@
       <h2>Selected Videos</h2>
 
       <div class="video-grid">
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/qnSpZFalGyc" allowfullscreen></iframe>
-        </div>
         <div class="video">
           <iframe src="https://www.youtube.com/embed/kBgTyAIZTq0" allowfullscreen></iframe>
         </div>
@@ -238,7 +259,6 @@
     <!-- EMAIL -->
     <section class="fade">
       <h2>Mailing List</h2>
-      <p>Early access to new drops and exclusive bundles.</p>
 
       <form action="https://formsubmit.co/bsentholdings@gmail.com" method="POST">
         <input type="email" name="email" placeholder="your@email.com" required>
@@ -246,14 +266,23 @@
       </form>
     </section>
 
-    <!-- SOCIALS -->
+    <!-- CONNECT -->
     <section class="fade">
       <h2>Connect</h2>
-      <div class="socials">
-        <a href="https://instagram.com/quinchomusic" target="_blank">Instagram</a>
-        <a href="https://tiktok.com/@quinchomusic" target="_blank">TikTok</a>
-        <a href="https://youtube.com/@joaquinsounds" target="_blank">YouTube</a>
-        <a href="mailto:bsentholdings@gmail.com">Email</a>
+
+      <div class="connect">
+        <a href="https://instagram.com/quinchomusic" target="_blank">
+          <span class="icon">📸</span> Instagram
+        </a>
+        <a href="https://tiktok.com/@quinchomusic" target="_blank">
+          <span class="icon">🎵</span> TikTok
+        </a>
+        <a href="https://youtube.com/@joaquinsounds" target="_blank">
+          <span class="icon">▶️</span> YouTube
+        </a>
+        <a href="mailto:bsentholdings@gmail.com">
+          <span class="icon">✉️</span> Email
+        </a>
       </div>
     </section>
 
